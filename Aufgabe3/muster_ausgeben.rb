@@ -3,7 +3,7 @@ def dreieck(n, zeichen)
     puts "keine Ausgabe für n=#{n} möglich"
   else 
     n.times do |i|
-      puts (zeichen+" ")*(i+1)
+      puts ("#{zeichen} "*(i+1))
     end
   end
 end
@@ -63,25 +63,41 @@ def diagonale(n, zeichen, breite)
     puts "keine Ausgabe für n=#{n} möglich"
   else
     #Erste Zeile
-    puts (zeichen+" ")*(breite-1)
+    puts ("#{zeichen} ")*(breite-1)
     #Mittlere Zeilen
     (n-2).times do |i|
       printf("%s",("  "*(i)))
-      puts (zeichen+" ")*breite
+      puts ("#{zeichen} ")*breite
     end
     #Letzte Zeile
     printf("%s",("  "*(n-2)))
-    puts (zeichen+" ")*(breite-1)
+    puts ("#{zeichen} ")*(breite-1)
     
   end
 end
 
 
+#Tests
+puts "[+] Testing dreieck, with values (1,:*) - (-5,:'(') - (5, :¬)"
+dreieck(1, :*)
+dreieck(-5,:'(')
+dreieck(5, :¬)
+puts "\n[+] Testing dreieck_alternierend with values (7, :-, :o)"
+dreieck_alternierend(7, :-, :o)
+puts "\n[+] Testing dreieck_alternierend_oben with values (9, :x, :'@')"
+dreieck_alternierend_oben(9, :x, :'@')
+puts "\n[+] Testing diagonale with values (7, :'o', 3)"
+diagonale(7, :'o', 3)
 
-puts "n: "
-n = gets.chomp.to_i
-puts "char: "
-zeichen = gets.chomp.to_s
-puts "breite: "
-breite = gets.chomp.to_i
-diagonale(n,zeichen[0],breite)
+
+
+
+
+
+
+
+
+
+
+
+
