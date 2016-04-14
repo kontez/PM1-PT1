@@ -2,41 +2,41 @@ class StringAnalyser
   def initialize(string)
     @string = string
   end
-	
-	def zaehle(teil_string)
-		return @string.scan(teil_string).size
- 	end
-	
-	def extrahiere_ende(trenn_zeichen)
-		return @string.split(trenn_zeichen).last
-	end
+  
+  def zaehle(teil_string)
+    return @string.scan(teil_string).size
+  end
+  
+  def extrahiere_ende(trenn_zeichen)
+    return @string.split(trenn_zeichen).last
+  end
 
-	def extrahiere_praefix(trenn_zeichen)
-		if @string[@string.size-1] == trenn_zeichen
-			return @string
-		else
-			tmp = @string.rindex(trenn_zeichen).to_i
-			return @string[0,tmp]
-		end
-	end
+  def extrahiere_praefix(trenn_zeichen)
+    if @string[@string.size-1] == trenn_zeichen
+      return @string
+    else
+      tmp = @string.rindex(trenn_zeichen).to_i
+      return @string[0,tmp]
+    end
+  end
 
   def ersetze_endung(trenn_zeichen, neue_endung)
-		if @string.include? trenn_zeichen	
-			newstring = extrahiere_praefix(trenn_zeichen)
-		else newstring = @string end
-		return newstring.concat(neue_endung)	
-	end
+    if @string.include? trenn_zeichen 
+      newstring = extrahiere_praefix(trenn_zeichen)
+    else newstring = @string end
+    return newstring.concat(neue_endung)  
+  end
 
-	def anzahl_woerter(trenn_zeichen)
-		tmpstr = @string.squeeze(trenn_zeichen)
-		#oneliners are bad and I should feel bad. Today I don't. :>
-		words = tmpstr.scan(/([^#{trenn_zeichen}]*)#{trenn_zeichen}?/).flatten!.reject! { |s| (s.nil? || s.empty?) }
-		return words.size
-	end
+  def anzahl_woerter(trenn_zeichen)
+    tmpstr = @string.squeeze(trenn_zeichen)
+    #oneliners are bad and I should feel bad. Today I don't. :>
+    words = tmpstr.scan(/([^#{trenn_zeichen}]*)#{trenn_zeichen}?/).flatten!.reject! { |s| (s.nil? || s.empty?) }
+    return words.size
+  end
 
   def to_s()
     return @string
-	end
+  end
 end
 
 
