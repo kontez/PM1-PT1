@@ -3,8 +3,22 @@ class StringAnalyser
     @string = string
   end
   
+  #This method returns unique occurences
+  #def zaehle(teil_string)
+  #  return @string.scan(teil_string).size
+  #end
+  
+  #This doesn't
   def zaehle(teil_string)
-    return @string.scan(teil_string).size
+    i = 0
+    e = 0
+    while i != @string.length()   
+      if @string[0+i...(teil_string.length+i)].include?(teil_string)  
+        e += 1
+      end
+      i += 1
+    end
+    return e
   end
   
   def extrahiere_ende(trenn_zeichen)
