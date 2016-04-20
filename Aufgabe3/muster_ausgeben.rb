@@ -10,24 +10,27 @@ end
 
 
 def dreieck_alternierend(n, zeichen1, zeichen2) 
+  max_l = n.to_s().size()
   if ( n <= 0 )
     puts "keine Ausgabe für n=#{n} möglich"
   else
     #header
+    printf("%-#{max_l}s ", " ")
     n.times do |i|
-      printf("\t%d", i+1)
-    end
+      printf("%-#{max_l}d ", i+1)
+  end
     printf("\n")
     #Zeilen
-    for i in 1..n
+    for i in (1..n)
       #Nummern an der Seite
-      printf("%d\t",i)
+      printf("%-#{max_l}d ", i)
       i.times do |j|
-        #wenn die Summe gerade ist druckt er z1, sonst z2
         if ((i+j)%2 == 0)
-          printf("%s\t",zeichen1)
+          printf("%-#{max_l}s ", zeichen1)
+          #printf("%s\t",zeichen1)
         else
-          printf("%s\t",zeichen2)
+          printf("%-#{max_l}s ", zeichen2)
+          #printf("%s\t",zeichen2)
         end
       end
       #newline
