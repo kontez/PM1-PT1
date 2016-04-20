@@ -59,23 +59,30 @@ def dreieck_alternierend_oben(n, zeichen1, zeichen2)
 end
 
 def diagonale(n, zeichen, breite)
-  if ( n <= 0 )
+  if (( n <= 0 ) || ( breite >= n ))
     puts "keine Ausgabe für n=#{n} möglich"
   else
-    #Erste Zeile
-    puts ("#{zeichen} ")*(breite-1)
+    #Erster Part
+    tmp = ( breite / 2 ) + 1
+    k = 0
+    tmp.upto(breite-1) do |i|
+      k += 1
+      puts ("#{zeichen} ")*i
+    end
     #Mittlere Zeilen
-    (n-2).times do |i|
+    (n-(k*2)).times do |i|
       printf("%s",("  "*(i)))
       puts ("#{zeichen} ")*breite
     end
-    #Letzte Zeile
-    printf("%s",("  "*(n-2)))
-    puts ("#{zeichen} ")*(breite-1)
-    
+    #Letzter Part
+    j = (n-(k*2))
+    (breite-1).downto(tmp) do |i|
+      printf("%s",("  "*j))
+      puts ("#{zeichen} ")*(i)
+      j += 1
+    end
   end
 end
-
 
 #Tests
 puts "[+] Testing dreieck, with values (1,:*) - (-5,:'(') - (5, :¬)"
