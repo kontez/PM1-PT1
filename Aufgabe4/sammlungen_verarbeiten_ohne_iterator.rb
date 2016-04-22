@@ -54,9 +54,9 @@ def zwei_dim_ary_ausgeben(ary)
 end
 
 # 1.7
-
 def zwei_dim_ary_kopieren(ary)
   newarr = []
+  newarr[0] = []
   for i in (0..ary.size-1)
     for j in (0..ary[i].size-1)
       newarr[i][j] = ary[i][j]
@@ -66,24 +66,51 @@ def zwei_dim_ary_kopieren(ary)
 end
 
 # 1.8
-
 def drei_dim_ary_kopieren(ary)
+  newarr = []
+  newarr[0] = []
+  newarr[1] = []
+  for i in (0..ary.size-1)
+    for j in (0..ary[i].size-1)
+      for k in (0..ary[i][j].size-1)
+        newarr[i][j][k] = ary[i][j][k]
+      end
+    end
+  end
+  return newarr
 end
 
 # 1.9
-
 def zwei_dim_ary_sum(ary)
-
+  newarr = []
+  newarr[0] = []
+  sum = 0
+  for i in (0..ary.size-1)
+    for j in (0..ary[i].size-1)
+      sum += ary[i][j]
+    end
+  end
+  return sum
 end
 
 # 1.10
 def drei_dim_ary_sum(ary)
-
+  newarr = []
+  newarr[0] = []
+  newarr[1] = []
+  sum = 0
+  for i in (0..ary.size-1)
+    for j in (0..ary[i].size-1)
+      for k in (0..ary[i][j].size-1)
+        sum += ary[i][j][k]
+      end
+    end
+  end
+  return sum
 end
 
 
 # 1.11
-
 def zwei_dim_ary_transponiere(ary)
 
 end
@@ -124,11 +151,45 @@ puts "~~~~~~~~~~~~~~~~~"
 #1.7
 zwei_dim_kopie = zwei_dim_ary_kopieren(zwei_dim_ary1)
 puts zwei_dim_kopie.equal?(zwei_dim_ary1) # should be false
+# Test, ob auch alle enthaltenen Elemente kopiert wurden
+enthalten_identisch = false
+for index in (0...zwei_dim_kopie.size())
+  if (zwei_dim_kopie[index].equal?(zwei_dim_ary1[index]))
+    enthalten_identisch = true
+  end
+end
+puts "alle enthaltenen Elemente wurden kopiert: #{!enthalten_identisch}"
 puts "~~~~~~~~~~~~~~~~~"
-
-
-
-
+# 1.8
+drei_dim_ary1 = Array.new(rand(1..5)){Array.new(rand(1..4)) {Array.new(rand(1..7)) {rand(1..100)}}}
+puts drei_dim_ary1.to_s()
+drei_dim_kopie = drei_dim_ary_kopieren(drei_dim_ary1)
+# Test, ob auch alle enthaltenen Elemente kopiert wurden
+def tiefe_kopie_drei_dim?(drei_dim_kopie,drei_dim_ary1)
+  for index in (0...drei_dim_kopie.size())
+    if (drei_dim_kopie[index].equal?(drei_dim_ary1[index]))
+      return false
+    end
+    for index2 in (0...drei_dim_kopie[index].size())
+      if (drei_dim_kopie[index][index2].equal?(drei_dim_ary1[index][index2]))
+        return false
+      end
+    end
+  end
+  return true
+end
+puts "alle enthaltenen Elemente wurden kopiert: #{tiefe_kopie_drei_dim?(drei_dim_kopie,drei_dim_ary1)}"
+puts "~~~~~~~~~~~~~~~~~"
+# 1.9
+puts zwei_dim_ary_sum(zwei_dim_ary1)
+puts "~~~~~~~~~~~~~~~~~"
+# 1.10
+puts drei_dim_ary_sum(drei_dim_ary1)
+puts "~~~~~~~~~~~~~~~~~"
+# 1.11
+zwei_dim_ary2 = Array.new(2){Array.new(5) {rand(1..100)}}
+puts zwei_dim_ary2.to_s()
+puts zwei_dim_ary_transponiere(zwei_dim_ary2).to_s()
 
 
 
