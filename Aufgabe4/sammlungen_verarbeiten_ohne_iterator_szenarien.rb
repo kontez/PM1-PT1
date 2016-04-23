@@ -1,4 +1,4 @@
-require "sammlungen_verarbeiten_ohne_iterator"
+require "./sammlungen_verarbeiten_ohne_iterator"
 
 # bitte den seed nicht ändern, damit Ergebnisse reproduzierbar bleiben
 srand(99)
