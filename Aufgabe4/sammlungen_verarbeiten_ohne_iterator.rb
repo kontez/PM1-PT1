@@ -1,8 +1,9 @@
 # 1.1
 def ein_dim_ary_elemente_ausgeben(ary)
-  for i in (0..ary.size-1)
-    puts "#{i}:#{ary[i]} "
-  end
+#  for i in (0..ary.size-1)
+#    puts "#{i}:#{ary[i]} "
+#  end
+	ary.each_index { |i| print "#{i}:#{ary[i]}" }
 end
 
 # 1.2
@@ -35,12 +36,13 @@ end
 
 # 1.5
 def ein_dim_ary_sum(ary)
-  if ary.empty? then return nil end
-  sum = 0
-  for i in (0..ary.size-1)
-    sum += ary[i]
-  end
-  return sum
+#  if ary.empty? then return nil end
+#  sum = 0
+#  for i in (0..ary.size-1)
+#    sum += ary[i]
+#  end
+#  return sum
+	return ary.inject(0){ |sum,i| sum + i }
 end
 
 # 1.6
@@ -83,13 +85,14 @@ end
 
 # 1.9
 def zwei_dim_ary_sum(ary)
-  sum = 0
-  for i in (0..ary.size-1)
-    for j in (0..ary[i].size-1)
-      sum += ary[i][j]
-    end
-  end
-  return sum
+#  sum = 0
+#  for i in (0..ary.size-1)
+#    for j in (0..ary[i].size-1)
+#      sum += ary[i][j]
+#    end
+#  end
+#  return sum
+	return ary.inject(0){ |sum,i| sum + i.inject(0){ |sum2,j| sum2 + j } }
 end
 
 # 1.10
