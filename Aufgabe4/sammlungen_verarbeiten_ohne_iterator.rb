@@ -16,9 +16,9 @@ end
 
 # 1.3
 def ein_dim_ary_teiler_von_3(n)
-  newarr = []
+  newarr = Array.new(n)
   for i in (0..n-1)
-    i % 3 == 0 ? newarr[i] = "#{i} Teiler von 3" : newarr[i] = nil
+    if ( i % 3 == 0 ) then newarr[i] = "#{i} Teiler von 3" end
   end
   return newarr
 end
