@@ -29,9 +29,9 @@ class Hash
 	# 2.5 konkateniere für Hash
 	def konkateniere(h2)
 		newhash = Hash.new()
-		h2.each {|key,value| 
-			self.each {|key2,value2|
-				if value2 == key then newhash[key2] = value end
+		self.each {|key,value| 
+			h2.each {|key2,value2|
+				if value == key2 then newhash[key] = value2 end
 			}
 		}
 		return newhash
