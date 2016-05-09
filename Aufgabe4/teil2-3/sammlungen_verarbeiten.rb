@@ -28,8 +28,13 @@ class Hash
 	end
 	# 2.5 konkateniere für Hash
 	def konkateniere(h2)
-		h2.each {|key,value| self[key] = value }
-		return self
+		newhash = Hash.new()
+		h2.each {|key,value| 
+			self.each {|key2,value2|
+				if value2 == key then newhash[key2] = value end
+			}
+		}
+		return newhash
 	end
 end
 
