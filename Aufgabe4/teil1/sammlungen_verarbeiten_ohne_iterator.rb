@@ -3,7 +3,7 @@ def ein_dim_ary_elemente_ausgeben(ary)
 #  for i in (0..ary.size-1)
 #    puts "#{i}:#{ary[i]} "
 #  end
-	ary.each_index { |i| print "#{i}:#{ary[i]}" }
+  ary.each_index { |i| print "#{i}:#{ary[i]}" }
 end
 
 # 1.2
@@ -42,7 +42,7 @@ def ein_dim_ary_sum(ary)
 #    sum += ary[i]
 #  end
 #  return sum
-	return ary.inject(0){ |sum,i| sum + i }
+  return ary.inject(0){ |sum,i| sum + i }
 end
 
 # 1.6
@@ -92,7 +92,7 @@ def zwei_dim_ary_sum(ary)
 #    end
 #  end
 #  return sum
-	return ary.inject(0){ |sum,i| sum + i.inject(0){ |sum2,j| sum2 + j } }
+  return ary.inject(0){ |sum,i| sum + i.inject(0){ |sum2,j| sum2 + j } }
 end
 
 # 1.10
